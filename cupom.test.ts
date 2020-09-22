@@ -15,7 +15,7 @@ IE: 244.898.500.113
 test('Nome vazio', () => {
   cupom.dados.nome_loja = "";
   try {
-    cupom.dados_loja();
+    cupom.dados_loja;
   } catch (e) {
     expect(e.message).toBe(`O campo nome da loja é obrigatório`);
   }
@@ -25,7 +25,7 @@ test('Nome vazio', () => {
 test('Logradouro vazio', () => {
   cupom.dados.logradouro = "";
   try {
-    cupom.dados_loja();
+    cupom.dados_loja;
   } catch (e) {
     expect(e.message).toBe(`O campo logradouro do endereço é obrigatório`);
   }
@@ -49,7 +49,7 @@ IE: 244.898.500.113
 test('Município vazio', () => {
   cupom.dados.municipio = "";
   try {
-    cupom.dados_loja();
+    cupom.dados_loja;
   } catch (e) {
     expect(e.message).toBe(`O campo município do endereço é obrigatório`);
   }
@@ -59,7 +59,7 @@ test('Município vazio', () => {
 test('Estado vazio', () => {
   cupom.dados.estado = "";
   try {
-    cupom.dados_loja();
+    cupom.dados.estado;
   } catch (e) {
     expect(e.message).toBe(`O campo estado do endereço é obrigatório`);
   }
@@ -69,7 +69,7 @@ test('Estado vazio', () => {
 test('CNPJ vazio', () => {
   cupom.dados.cnpj = "";
   try {
-    cupom.dados_loja();
+    cupom.dados_loja;
   } catch (e) {
     expect(e.message).toBe(`O campo CNPJ da loja é obrigatório`);
   }
@@ -79,7 +79,7 @@ test('CNPJ vazio', () => {
 test('Inscrição estadual vazia', () => {
   cupom.dados.inscricao_estadual = "";
   try {
-    cupom.dados_loja();
+    cupom.dados_loja;
   } catch (e) {
     expect(e.message).toBe(`O campo inscrição estadual da loja é obrigatório`);
   }
@@ -89,21 +89,26 @@ test('Inscrição estadual vazia', () => {
 test('Exercício 2 - customizado', () => {
 
   // Defina seus próprios valores para as variáveis a seguir
-  cupom.dados.nome_loja = "";
-  cupom.dados.logradouro = "";
-  cupom.dados.numero = 0;
-  cupom.dados.complemento = "";
-  cupom.dados.bairro = "";
-  cupom.dados.municipio = "";
-  cupom.dados.estado = "";
-  cupom.dados.cep = "";
-  cupom.dados.telefone = "";
-  cupom.dados.observacao = "";
-  cupom.dados.cnpj = "";
-  cupom.dados.inscricao_estadual = "";
+  cupom.dados.nome_loja = "Loja CRVG";
+  cupom.dados.logradouro = "R. Gen. Almério de Moura";
+  cupom.dados.numero = 131;
+  cupom.dados.complemento = "Estádio";
+  cupom.dados.bairro = "São Januário";
+  cupom.dados.municipio = "Rio de Janeiro";
+  cupom.dados.estado = "RJ";
+  cupom.dados.cep = "20921-060";
+  cupom.dados.telefone = "(21) 91898-1927";
+  cupom.dados.observacao = "Obs 1";
+  cupom.dados.cnpj = "12.111.333/12133-12";
+  cupom.dados.inscricao_estadual = "123.456.789.000";
 
   //E atualize o texto esperado abaixo
-  expect(cupom.dados_loja()).toBe(
-    `
+  expect(cupom.dados_loja()).toBe(`Loja CRVG
+R. Gen. Almério de Moura, 131 Estádio
+São Januário - Rio de Janeiro - RJ
+CEP:20921-060 Tel (21) 91898-1927
+Obs 1
+CNPJ: 12.111.333/12133-12
+IE: 123.456.789.000
 `);
 });
